@@ -117,7 +117,7 @@ void incoming_call_listener(void)
                                     "org.freesmartphone.ogsmd", 
 	                         	 	"/org/freesmartphone/GSM/Device", 
 	                          		"org.freesmartphone.GSM.Call");
-	dbus_g_object_register_marshaller(marshal_VOID__STRING_UINT_INT, G_TYPE_NONE, G_TYPE_STRING, G_TYPE_UINT, G_TYPE_INT, G_TYPE_INVALID);
+	dbus_g_object_register_marshaller(marshal_VOID__UINT_STRING_STRV, G_TYPE_NONE, G_TYPE_UINT, G_TYPE_STRING, G_TYPE_STRV, G_TYPE_INVALID);
 	dbus_g_proxy_add_signal(proxy, "CallStatus", G_TYPE_UINT, G_TYPE_STRING, G_TYPE_STRV, G_TYPE_INVALID);
 	dbus_g_proxy_connect_signal (proxy, "CallStatus", G_CALLBACK(pause_on_call), connection, NULL); 
   	g_object_unref (proxy);

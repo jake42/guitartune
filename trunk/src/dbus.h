@@ -13,8 +13,14 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
- 
+
+#include <glib.h>
+#include <dbus/dbus-glib.h>
+
  int occupy_display_and_cpu(void);
  int release_display_and_cpu(void);
- int check_in_call(void);
- int listen_incoming(void);
+void incoming_call_listener(void);
+void pause_on_call(DBusGProxy *object, const char *address, const unsigned int class, const int rssi, gpointer user_data);
+
+DBusGConnection *connection;
+DBusGProxy *proxy;

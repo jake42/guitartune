@@ -1,0 +1,26 @@
+
+[Anjuta]
+Maximized=1
+Geometry=1280x750+0+25
+
+[File Loader]
+Files=file:///home/nidhi/workspace/guitartune-standby/src/dbus.c#27%%%file:///home/nidhi/workspace/guitartune-standby/src/main.c#243%%%file:///home/nidhi/workspace/guitartune-standby/src/callbacks.h#24%%%file:///home/nidhi/workspace/guitartune-standby/src/callbacks.c#1
+
+[Document Manager]
+bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
+
+[Execution]
+Program uri=file:///home/nidhi/workspace/guitartune-standby/src/guitartune%%%file:///home/nidhin/workspace/guitartune/src/guitartune%%%file:///home/sco/workspace/guitartune/src/guitartune
+Run in terminal=2
+Working directories=file:///home/nidhi/workspace/guitartune-standby/src%%%file:///home/nidhi/workspace/guitartune-alt/src%%%file:///home/nidhin/workspace/guitartune/src%%%file:///home/sco/workspace/guitartune/src
+
+[Build]
+Configuration list=1:Default:%%%1:Debug:Debug%%%1:Profiling:Profiling%%%1:Optimized:Optimized
+Selected Configuration=Default
+BuildArgs/Debug='CFLAGS=-g -O0' 'CXXFLAGS=-g -O0' 'JFLAGS=-g -O0' 'FFLAGS=-g -O0'
+BuildArgs/Profiling='CFLAGS=-g -pg' 'CXXFLAGS=-g -pg' 'JFLAGS=-g -pg' 'FFLAGS=-g -pg'
+BuildArgs/Optimized='CFLAGS=-O2' 'CXXFLAGS=-O2' 'JFLAGS=-O2' 'FFLAGS=-O2'
+
+[Debugger]
+Watch=%%%temp
+Stop at beginning=2

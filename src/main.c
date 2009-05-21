@@ -34,6 +34,7 @@
 #include <pthread.h>
 #include "callbacks.h"
 #include "dsp.h"
+#include "dbus.h"
 #include "alsa_capture.h"
 
 unsigned int rate = 44100;
@@ -65,9 +66,7 @@ int new_freq = 0;
 #endif
 
 /* For testing propose use the local (not installed) glade file */
-/* #define GLADE_FILE PACKAGE_DATA_DIR"/guitar/glade/guitartune.glade" */
-//#define GLADE_FILE "/usr/share/guitartune/guitartune.glade"
-#define GLADE_FILE "guitar_alt.glade"
+#define GLADE_FILE "/usr/share/guitartune/guitartune.glade"
 
 GtkWidget*
 create_window (void)
@@ -81,12 +80,14 @@ create_window (void)
 	glade_xml_signal_autoconnect (gxml);
 	window = glade_xml_get_widget (gxml, "win");
 	n_note = glade_xml_get_widget(gxml, "n_note");
+	ref_freq = glade_xml_get_widget(gxml, "ref_freq");
 	det_freq = glade_xml_get_widget(gxml, "det_freq");
 	tune = glade_xml_get_widget(gxml, "tune");
 	
-	gtk_widget_modify_font (n_note, pango_font_description_from_string("50"));
-	gtk_widget_modify_font (det_freq, pango_font_description_from_string("50"));
-	gtk_widget_modify_font (tune, pango_font_description_from_string("50"));
+	gtk_widget_modify_font (n_note, pango_font_description_from_string("16"));
+	gtk_widget_modify_font (ref_freq, pango_font_description_from_string("16"));
+	gtk_widget_modify_font (det_freq, pango_font_description_from_string("16"));
+	gtk_widget_modify_font (tune, pango_font_description_from_string("16"));
 	
 	label_0 = glade_xml_get_widget(gxml, "label_0"); 
 	label_p = glade_xml_get_widget(gxml, "label_p");
@@ -146,11 +147,12 @@ void display_freq(void)
 	
 	if (f < 25.00 || f > 4200) {
 		strcpy (tmpstr,"~");
+		gtk_label_set_text( GTK_LABEL(ref_freq), tmpstr);
+		strcpy (tmpstr,"~");
 		gtk_label_set_text( GTK_LABEL(n_note), tmpstr);
 		strcpy (tmpstr,"Tune ~");
 		gtk_label_set_text( GTK_LABEL(tune), tmpstr);
 		return;
-
 	}
 
 	for (i = 0; i < 87; i++) {
@@ -162,6 +164,8 @@ void display_freq(void)
 	if (i == 0 && diff < 0) {
 		strcpy (tmpstr,"A0");
 		gtk_label_set_text( GTK_LABEL(n_note), tmpstr);
+		sprintf (tmpstr, "%0.2f", notes[0].freq);
+		gtk_label_set_text( GTK_LABEL(ref_freq), tmpstr);
 		strcpy (tmpstr,"Tune\nUp");
 		gtk_label_set_text( GTK_LABEL(tune), tmpstr);
 		set_incr(3);
@@ -171,6 +175,8 @@ void display_freq(void)
 	if (i == 87 && diff > 0) { i=86;
 		strcpy (tmpstr,"C 8");
 		gtk_label_set_text( GTK_LABEL(n_note), tmpstr);
+		sprintf (tmpstr,"%0.2f", notes[i].freq);
+		gtk_label_set_text( GTK_LABEL(ref_freq), tmpstr);
 		strcpy (tmpstr,"Tune\nDown");
 		gtk_label_set_text( GTK_LABEL(tune), tmpstr);
 		set_incr(1);
@@ -182,13 +188,17 @@ void display_freq(void)
 	// if tuned to any note 
 	if (diff1 == 0) {
 		strcpy (tmpstr,notes[i-1].label);
-		gtk_label_set_text( GTK_LABEL(n_note), tmpstr);	  
+		gtk_label_set_text( GTK_LABEL(n_note), tmpstr);	 
+		sprintf (tmpstr, "%0.2f", notes[i-1].freq);
+		gtk_label_set_text( GTK_LABEL(ref_freq), tmpstr);	  
 		set_incr(2);
 	}
 	// if freq is higher than the nearest note
 	else if (diff1 < diff2) {
 		strcpy (tmpstr,notes[i-1].label);
 		gtk_label_set_text( GTK_LABEL(n_note), tmpstr);
+		sprintf (tmpstr, "%0.2f", notes[i-1].freq);
+		gtk_label_set_text( GTK_LABEL(ref_freq), tmpstr);
 		strcpy (tmpstr,"Tune\nDown");
 		gtk_label_set_text( GTK_LABEL(tune), tmpstr);
 		set_incr(1);
@@ -197,6 +207,8 @@ void display_freq(void)
 	else {
 		strcpy (tmpstr,notes[i].label);
 		gtk_label_set_text( GTK_LABEL(n_note), tmpstr);
+		sprintf (tmpstr, "%0.2f", notes[i].freq);
+		gtk_label_set_text( GTK_LABEL(ref_freq), tmpstr);
 		strcpy (tmpstr,"Tune\nUp");
 		gtk_label_set_text( GTK_LABEL(tune), tmpstr);
 		set_incr(3);
@@ -208,6 +220,7 @@ static void quit( GtkWidget *widget,
 {
 	int err=0;
     err = system("alsactl -f /usr/share/openmoko/scenarios/stereoout.state restore");
+	release_display_and_cpu();
     gtk_main_quit ();
 }
 
@@ -227,11 +240,11 @@ main (int argc, char *argv[])
 	gdk_threads_init();
  	GtkWidget *window;
 	int i=0, err=0;
-	GdkPixbuf *pixbuf;
-	GError *error=NULL;
-	GdkPixmap *pixmap;
+	//GdkPixbuf *pixbuf;
+	//GError *error=NULL;
+	//GdkPixmap *pixmap;
 	//GdkBitmap *mask;
-	GtkStyle *style;
+	//GtkStyle *style;
 
 #ifdef ENABLE_NLS
 	bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
@@ -241,7 +254,10 @@ main (int argc, char *argv[])
 	
 	gtk_set_locale ();
 	gtk_init (&argc, &argv);
-
+	//dbus stuff
+	incoming_call_listener();
+	occupy_display_and_cpu();
+	
 	window = create_window ();
 	
 	// set the background image
@@ -266,7 +282,7 @@ main (int argc, char *argv[])
   	}
 	
 	// set alsa state
-	err = system("alsactl -f /usr/share/openmoko/scenarios/voip.state restore");
+	err = system("alsactl -f /usr/share/openmoko/scenarios/voip-handset.state restore");
 	// create a continuously looping thread that calculates freq detected
 	g_thread_create((GThreadFunc) get_max_amp,NULL,0,NULL);
 	gdk_threads_enter();

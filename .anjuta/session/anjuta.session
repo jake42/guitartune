@@ -1,10 +1,7 @@
 
 [Anjuta]
 Maximized=1
-Geometry=1280x750+0+25
-
-[File Loader]
-Files=file:///home/nidhi/workspace/guitartune-standby/src/dbus.c#27%%%file:///home/nidhi/workspace/guitartune-standby/src/main.c#243%%%file:///home/nidhi/workspace/guitartune-standby/src/callbacks.h#24%%%file:///home/nidhi/workspace/guitartune-standby/src/callbacks.c#1
+Geometry=1366x720+0+25
 
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n

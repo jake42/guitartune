@@ -110,7 +110,8 @@ dbus.o: dbus.c dbus.h \
   /usr/local/openmoko/arm/arm-angstrom-linux-gnueabi/usr/include/bits/sigset.h \
   /usr/local/openmoko/arm/arm-angstrom-linux-gnueabi/usr/include/sys/sysmacros.h \
   /usr/local/openmoko/arm/arm-angstrom-linux-gnueabi/usr/include/bits/pthreadtypes.h \
-  /usr/local/openmoko/arm/arm-angstrom-linux-gnueabi/usr/include/alloca.h
+  /usr/local/openmoko/arm/arm-angstrom-linux-gnueabi/usr/include/alloca.h \
+  marshal.h
 
 dbus.h:
 
@@ -337,3 +338,5 @@ dbus.h:
 /usr/local/openmoko/arm/arm-angstrom-linux-gnueabi/usr/include/bits/pthreadtypes.h:
 
 /usr/local/openmoko/arm/arm-angstrom-linux-gnueabi/usr/include/alloca.h:
+
+marshal.h:

@@ -3,13 +3,16 @@
 Maximized=1
 Geometry=1366x720+0+25
 
+[File Loader]
+Files=file:///home/ito/workspace/guitartune/src/dbus.c#184%%%file:///home/ito/workspace/guitartune/src/dsp.c#1%%%file:///home/ito/workspace/guitartune/src/main.c#65%%%file:///home/ito/workspace/guitartune/src/dbus.h#26
+
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
 
 [Execution]
-Program uri=file:///home/nidhi/workspace/guitartune-standby/src/guitartune%%%file:///home/nidhin/workspace/guitartune/src/guitartune%%%file:///home/sco/workspace/guitartune/src/guitartune
+Program uri=file:///home/ito/workspace/guitartune/src/guitartune%%%file:///home/nidhi/workspace/guitartune-standby/src/guitartune%%%file:///home/nidhin/workspace/guitartune/src/guitartune%%%file:///home/sco/workspace/guitartune/src/guitartune
 Run in terminal=2
-Working directories=file:///home/nidhi/workspace/guitartune-standby/src%%%file:///home/nidhi/workspace/guitartune-alt/src%%%file:///home/nidhin/workspace/guitartune/src%%%file:///home/sco/workspace/guitartune/src
+Working directories=file:///home/sco/workspace/guitartune/src%%%file:///home/nidhi/workspace/guitartune-standby/src%%%file:///home/nidhi/workspace/guitartune-alt/src%%%file:///home/nidhin/workspace/guitartune/src
 
 [Build]
 Configuration list=1:Default:%%%1:Debug:Debug%%%1:Profiling:Profiling%%%1:Optimized:Optimized

@@ -13,14 +13,5 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
-
-#include <glib.h>
-#include <dbus/dbus-glib.h>
-
- int occupy_display(void);
- int release_display(void);
-void incoming_call_listener(void);
-void pause_on_call(int id, char *status, char** array);
-
-DBusGConnection *connection;
-DBusGProxy *proxy;
+ 
+ 

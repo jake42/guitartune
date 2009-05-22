@@ -26,7 +26,9 @@ guitartune_SOURCES = \
 	dsp.c \
 	dsp.h \
 	dbus.c \
-	dbus.h
+	dbus.h \
+	marshal.c \
+	marshal.h
 
 guitartune_LDFLAGS = \
 	-Wl,--export-dynamic

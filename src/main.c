@@ -62,7 +62,7 @@ int new_freq = 0;
 #  define dcgettext(Domain,Message,Type) (Message)
 #  define bindtextdomain(Domain,Directory) (Domain)
 #  define _(String) (String)
-#  define N_(String) (String)
+#  define N_(String) (String)l#write_comment
 #endif
 
 /* For testing propose use the local (not installed) glade file */
@@ -220,7 +220,7 @@ static void quit( GtkWidget *widget,
 {
 	int err=0;
     err = system("alsactl -f /usr/share/openmoko/scenarios/stereoout.state restore");
-	release_display_and_cpu();
+	//err = release_display();
     gtk_main_quit ();
 }
 
@@ -255,8 +255,8 @@ main (int argc, char *argv[])
 	gtk_set_locale ();
 	gtk_init (&argc, &argv);
 	//dbus stuff
-	incoming_call_listener();
-	occupy_display_and_cpu();
+	//incoming_call_listener();
+	err = occupy_display();
 	
 	window = create_window ();
 	

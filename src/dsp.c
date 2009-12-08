@@ -25,7 +25,8 @@ extern float max_amp;
 extern int new_freq;
 
 // inline this code
-void downsample( float *input_buf, float *output_buf, int output_count ) {
+void 
+downsample( float *input_buf, float *output_buf, int output_count ) {
 	int input_idx, input_end, output_idx; 
 	float output_sam;
 	input_idx = output_idx = 0;
@@ -41,7 +42,8 @@ void downsample( float *input_buf, float *output_buf, int output_count ) {
 
 // get data from /dev/dsp, apply a FFT on it and do HPS.
 // return the freq with max amplitude (hopefully ;-)
-void get_max_amp(void)
+void 
+get_max_amp(void)
 {
 	float max;
 	double temp;

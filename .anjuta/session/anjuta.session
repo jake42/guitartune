@@ -1,10 +1,10 @@
 
 [Anjuta]
 Maximized=1
-Geometry=1366x720+0+25
+Geometry=1366x718+0+25
 
 [File Loader]
-Files=file:///home/ito/workspace/guitartune/src/dbus.c#184%%%file:///home/ito/workspace/guitartune/src/dsp.c#1%%%file:///home/ito/workspace/guitartune/src/main.c#65%%%file:///home/ito/workspace/guitartune/src/dbus.h#26
+Files=file:///home/ito/workspace/guitartune/src/dbus.c#72%%%file:///home/ito/workspace/guitartune/src/dsp.c#46%%%file:///home/ito/workspace/guitartune/src/main.c#286%%%file:///home/ito/workspace/guitartune/src/dbus.h#21%%%file:///home/ito/workspace/guitartune/src/alsa_capture.c#90%%%file:///home/ito/workspace/guitartune/src/callbacks.c#31
 
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n
@@ -14,9 +14,13 @@ Program uri=file:///home/ito/workspace/guitartune/src/guitartune%%%file:///home/
 Run in terminal=2
 Working directories=file:///home/sco/workspace/guitartune/src%%%file:///home/nidhi/workspace/guitartune-standby/src%%%file:///home/nidhi/workspace/guitartune-alt/src%%%file:///home/nidhin/workspace/guitartune/src
 
+[SymbolDB]
+SystemPackages=gtk+-2.0%%%libglade-2.0%%%fftw3%%%alsa%%%dbus-1%%%gthread-2.0%%%dbus-glib-1
+
 [Build]
 Configuration list=1:Default:%%%1:Debug:Debug%%%1:Profiling:Profiling%%%1:Optimized:Optimized
 Selected Configuration=Default
+BuildArgs/Default=--enable-maintainer-mode
 BuildArgs/Debug='CFLAGS=-g -O0' 'CXXFLAGS=-g -O0' 'JFLAGS=-g -O0' 'FFLAGS=-g -O0'
 BuildArgs/Profiling='CFLAGS=-g -pg' 'CXXFLAGS=-g -pg' 'JFLAGS=-g -pg' 'FFLAGS=-g -pg'
 BuildArgs/Optimized='CFLAGS=-O2' 'CXXFLAGS=-O2' 'JFLAGS=-O2' 'FFLAGS=-O2'

@@ -20,7 +20,8 @@
 #include <alsa/asoundlib.h>
 #include "alsa_capture.h"
 
-int init_alsa(unsigned int rate)
+int 
+init_alsa(unsigned int rate)
 {
 	int err;
 	
@@ -85,7 +86,8 @@ int init_alsa(unsigned int rate)
     return 0;
 }
 
-int get_samples(short* sample, int N)
+int 
+get_samples(short* sample, int N)
 {
     int err;
 	    if ((err = snd_pcm_prepare(audio_capture_handle)) < 0) {

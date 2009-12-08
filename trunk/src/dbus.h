@@ -17,8 +17,8 @@
 #include <glib.h>
 #include <dbus/dbus-glib.h>
 
- int occupy_display(void);
- int release_display(void);
+int occupy_display(void);
+int release_display(void);
 void incoming_call_listener(void);
 void pause_on_call(int id, char *status, char** array);
 

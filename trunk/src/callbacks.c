@@ -27,7 +27,8 @@
 
 // indicate whether the freq detected is lower / higher than
 // the nearest note
-void set_incr(int i)
+void 
+set_incr(int i)
 {
 	gtk_widget_modify_bg (label_0, GTK_STATE_NORMAL, NULL);
 	gtk_widget_modify_bg (label_p, GTK_STATE_NORMAL, NULL);

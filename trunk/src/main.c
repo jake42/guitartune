@@ -100,7 +100,8 @@ create_window (void)
 
 // (mainly) display the detected freq, nearest note and whether
 // this is lower / higher than the nearest note
-void display_freq(void)
+void 
+display_freq(void)
 {
 	int i=0; char tmpstr[30]; float f,diff = 1.0, diff1,diff2;
     struct {
@@ -215,16 +216,16 @@ void display_freq(void)
 	}
 }
 
-static void quit( GtkWidget *widget,
-                     gpointer   data )
+static void
+quit( GtkWidget *widget, gpointer data )
 {
 	int err=0;
-    err = system("alsactl -f /usr/share/openmoko/scenarios/stereoout.state restore");
-	//err = release_display();
+    err = system("alsactl -f /usr/share/shr/scenarii/stereoout.state restore");
     gtk_main_quit ();
 }
 
-int check_freq_det(void)
+int 
+check_freq_det(void)
 {
 	if (new_freq) {
 		new_freq = 0;
@@ -282,7 +283,7 @@ main (int argc, char *argv[])
   	}
 	
 	// set alsa state
-	err = system("alsactl -f /usr/share/openmoko/scenarios/voip-handset.state restore");
+	err = system("alsactl -f /usr/share/shr/scenarii/voip-handset.state restore");
 	// create a continuously looping thread that calculates freq detected
 	g_thread_create((GThreadFunc) get_max_amp,NULL,0,NULL);
 	gdk_threads_enter();

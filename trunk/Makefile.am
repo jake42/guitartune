@@ -1,9 +1,9 @@
 ## Process this file with automake to produce Makefile.in
 ## Created by Anjuta
 
-SUBDIRS = src po
+SUBDIRS = src
 
-guitartunedocdir = ${prefix}/doc/guitartune
+guitartunedocdir = ${datadir}/doc/guitartune
 guitartunedoc_DATA = \
 	README\
 	COPYING\

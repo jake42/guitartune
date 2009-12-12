@@ -2,7 +2,7 @@
 
 ## Created by Anjuta
 
-gladedir = $(datadir)/guitartune/glade
+gladedir = $(datadir)/guitartune
 glade_DATA = guitartune.glade
 
 AM_CPPFLAGS = \

@@ -62,7 +62,7 @@ int new_freq = 0;
 #  define dcgettext(Domain,Message,Type) (Message)
 #  define bindtextdomain(Domain,Directory) (Domain)
 #  define _(String) (String)
-#  define N_(String) (String)l#write_comment
+#  define N_(String) (String)
 #endif
 
 /* For testing propose use the local (not installed) glade file */

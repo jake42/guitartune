@@ -1,10 +1,10 @@
 
 [Anjuta]
 Maximized=1
-Geometry=1366x718+0+25
+Geometry=1680x1002+0+24
 
 [File Loader]
-Files=file:///home/ito/workspace/guitartune/src/dbus.c#72%%%file:///home/ito/workspace/guitartune/src/dsp.c#46%%%file:///home/ito/workspace/guitartune/src/main.c#286%%%file:///home/ito/workspace/guitartune/src/dbus.h#21%%%file:///home/ito/workspace/guitartune/src/alsa_capture.c#90%%%file:///home/ito/workspace/guitartune/src/callbacks.c#31
+Files=file:///home/cc/workspace/guitartune/src/main.c#65
 
 [Document Manager]
 bookmarks=<?xml version="1.0" encoding="UTF-8"?>\n<bookmarks/>\n

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=GuitarTune
+Comment=Tune your Guitar
+Exec=guitartune
+Icon=guitartune
+Terminal=false
+Type=Application
+Categories=Office;
+SingleInstance=true
+StartupNotify=true

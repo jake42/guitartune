@@ -1,0 +1,11 @@
+About:
+------
+
+ guitartune is a musical intrument tuner that uses a Fast Fourier Transform and Harmonic Spectrum Product to display the detected freq. It has a resolution of 1 Hz.
+
+Requirements:
+-------------
+
+ libfftw3 
+ gtk+
+ libglade
